@@ -1,0 +1,791 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>#100daysofCode</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="812dcb99-6865-4272-bfdb-27ea14b845a7" class="page sans"><header><img class="page-cover-image" src="COMMUNITY.png" style="object-position:center 49.36000000000001%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Copy_of_Copy_of_Copy_of_Copy_of_100_days-4.gif"/></div><h1 class="page-title">#<a href="https://100days.codes/">100days</a>ofCode</h1></header><div class="page-body"><p id="f65af741-d5f5-421e-bee1-68b7b17c710a" class="">[For the best experience we request you to use a bigger screen]</p><p id="2c0f9d39-d58b-4c3b-bc50-e96cfe748959" class="">
+</p><p id="c9f855c2-45bf-48ff-a72b-7b2ba101aa23" class="">
+</p><p id="5b9dfaf7-4c94-4c15-a3b7-aeb780b77ab2" class="">
+</p><p id="2a5fc218-5402-4220-a038-d5a5c39a4e7d" class="">
+</p><h1 id="cdb26092-23e8-4ca7-aced-1f4a6cc85e48" class="block-color-purple_background">⚠️ Before starting</h1><p id="8dd78d5b-f46a-4329-9cfa-f5dbc0e668b1" class="">
+</p><ol id="93c44756-128d-4f13-a38a-53d6624c0399" class="numbered-list" start="1"><li><strong>⭐️ Star this repo. </strong><mark class="highlight-yellow"><a href="https://github.com/utkarshxy/100-days-of-code"><strong>[Link]</strong></a></mark><mark class="highlight-yellow"><strong> </strong></mark><strong> Cause why not 😅 😊
+</strong></li></ol><ol id="6fbf9400-6e31-4a46-ab2f-7e5ccfac010e" class="numbered-list" start="2"><li>Update/add your title as “<mark class="highlight-yellow">Participant</mark>” in 100days under the professional experience section on LinkedIn. (Example Below) 
+<figure id="07f822c0-2dbf-4bdb-a62e-7329fbf4c9bb" class="image"><a href="#100daysofCode%2007f822c02dbf4bdba62e7329fbf4c9bb/Screenshot_2021-05-13_at_1.24.03_PM.png"><img style="width:576px" src="example.png"/></a></figure><p id="d29c16db-07c6-4a55-90ee-9f310c10cabb" class="">
+</p></li></ol><ol id="99e3f6de-9beb-4728-8c9a-9798d819effa" class="numbered-list" start="3"><li>Make sure you have <mark class="highlight-red"><strong>followed all steps</strong></mark> mentioned on the &quot;<mark class="highlight-purple">How to get Started&quot;</mark> page. 
+<figure id="f25a29c7-0b4d-4c4c-b594-b7e99125be5b" class="image"><a href="#100daysofCode%2007f822c02dbf4bdba62e7329fbf4c9bb/Screenshot_2021-05-12_at_7.06.13_PM.png"><img style="width:576px" src="Screenshot_2021-05-12_at_7.06.13_PM.png"/></a></figure><p id="4b734b8f-59b3-4454-8f50-90df99df6d89" class="">
+</p><p id="6d0d8e9a-cefb-488f-8191-919913a16f89" class="">
+</p></li></ol><ol id="8575c916-86f1-464f-b329-0c2e8c0a50c6" class="numbered-list" start="4"><li><mark class="highlight-purple">Lastly, Before starting Day 1</mark><mark class="highlight-yellow"> - </mark><span style="border-bottom:0.05em solid"><strong>Do not forget to commit to the challenge publicly. </strong></span>
+
+</li></ol><ol id="ab9b23cf-726c-4e18-abd7-16f4002b07be" class="numbered-list" start="5"><li><strong>Everything mentioned in this pathway with colour the &quot;</strong><strong><mark class="highlight-yellow">Yellow</mark></strong><strong>&quot; is a link. 
+ Don&#x27;t forget to click it! </strong></li></ol><p id="7e59eafb-27ae-45b0-a974-ad1651e01f8c" class="">
+
+</p><p id="53a0be04-dd91-45fe-b7cb-adf1be22389c" class="">
+</p><p id="2d2d0498-c395-4edc-a348-0b47604bef17" class="">
+</p><h1 id="5a1d439a-2c97-447d-833a-cb38f0d8a54a" class="">🏁 <mark class="highlight-orange">Golden RULE</mark></h1><p id="f4903b03-5ed6-4a6f-8b29-49daa35135e3" class="">(More like the orange rule but I failed to find the golden colour 😂)
+</p><p id="e5570b2f-fc3b-479f-ba2f-ed9a2436297d" class="">Each day you will be sharing your progress as (example) - </p><p id="03b3c425-15ce-4926-8f6a-c2324ed13e40" class="">
+Day 1/100 - Installing The tools and sharing what you learned and your experience on LinkedIn,  <mark class="highlight-red"><span style="border-bottom:0.05em solid"><strong>tagging </strong></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong><a href="https://www.linkedin.com/company/100daysofficial">our page</a></strong></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>.</strong></span></mark>
+
+<strong>Do not</strong> forget to use #hashtags : </p><ul id="f9e72780-c202-4c7a-aa72-de8587ef886c" class="bulleted-list"><li>#100days</li></ul><ul id="a97d48dc-92eb-459e-a2c8-709ccabe694f" class="bulleted-list"><li> #100daysOfficial</li></ul><ul id="9600c441-6285-4db7-a04a-06713af31520" class="bulleted-list"><li>#100daysoflearning</li></ul><ul id="0c8d09ae-2451-42d6-a654-2b51f15371a2" class="bulleted-list"><li>#100daysofcode</li></ul><ul id="34dfa160-2880-4f60-a41e-81acba042123" class="bulleted-list"><li>#100daysofCode</li></ul><p id="bf6f3019-ac54-4027-bb71-ff537d873ab3" class="">
+</p><figure id="936cc0d6-0f09-4656-8670-486552654cd2" class="image"><a href="#100daysofCode%2007f822c02dbf4bdba62e7329fbf4c9bb/example.png"><img style="width:480px" src="Screenshot_2021-05-13_at_1.24.03_PM.png"/></a></figure><h3 id="6b22172a-5e5f-4c78-aca8-0d84bd242170" class="">
+<mark class="highlight-purple"><span style="border-bottom:0.05em solid"><strong>Tagging our LinkedIn page (@100daysofficial) is important. </strong></span></mark></h3><p id="45d59aab-6b10-44e7-8305-203a13f27639" class="">
+</p><p id="822146cf-9652-4680-9510-2139616b4062" class="">
+</p><blockquote id="f87a7a20-b8f6-491a-87a5-5ed91d3a275f" class="">This is essential for you as you get to keep a track of your progress and us to stick to our motto for democratizing free learning and increasing our reach so more students get to use these curated pathways to kickstart their journey in various fields.</blockquote><p id="bfa4e7e9-643b-47c1-81c8-1132a08cec09" class=""><strong>Don’t forget to read a little message at the end for everyone by the Founder of 100days.</strong></p><hr id="ec6d2a85-580e-408d-9273-25d41a198d7b"/><hr id="46a48200-7681-40be-91f0-f1944ce48a6f"/><p id="af252cbd-c9b4-4b6a-bf39-1e9326f52100" class="">
+</p><p id="35333e21-827c-4f4c-bc5a-3db406bbcb69" class="">
+</p><p id="74cd9366-492c-4874-a9f5-ec3783fdb039" class="">
+</p><p id="e399c47c-b2ab-44f7-9ada-f15acc41247d" class="">
+</p><p id="40a8b8d1-099c-4cb2-886c-a7a9c3829a86" class="">
+</p><p id="88f19963-5443-4c56-98c2-bc551195be8c" class="">
+</p><h1 id="8b0921b3-3af5-43c5-a530-891ecc63a49d" class=""><mark class="highlight-yellow_background">⚠️ Before Starting</mark>
+</h1><p id="01ec1d72-1007-4abd-a3d5-7c3d9153e428" class="">One of the first that you need to ask yourself before taking this challenge is what are your end goals and why are you taking this challenge. The way this pathway is designed will help you with cracking interviews, Well how many? That depends on you totally and solely. 
+
+100days i.e 14 weeks. It&#x27;s a lot of day almost 1/3rd of the year. That is almost 27% per cent of a year. You need to be clear about what you want to achieve by the end of it.  If it&#x27;s a company you are targeting then you need to be company-centric during the last weeks of preparation, making sure your ideology matches theirs and you connect with them and understand their goals. 
+
+Unlike other pathways our there. You will need to dedicates at least 4 to 6 Hours every day if you are aiming at cracking an interview in 100days, especially if you are a beginner. 
+</p><h3 id="d430ab54-d9df-474c-8224-f5fa61d47114" class=""><mark class="highlight-red">✅  Make sure you have chosen a programming language.</mark></h3><p id="4f2d4b87-aa67-4bda-873e-e9c0ca9f94c1" class="">Why only a single programming language? Well if you can pull off more than one in </p><p id="a07017e8-2995-4809-aa2d-b579b8c032d5" class="">100days then you are more than welcome to. But, focus on a single language, once you master one language then move onto the next one. 
+
+</p><h2 id="fc48854c-c27e-4791-a217-e8afbebe0ad4" class="">📹 For watching <span style="border-bottom:0.05em solid">video without ads</span> use <mark class="highlight-yellow"><a href="https://brave.com">brave</a></mark> browser. 
+(Personal suggestion) </h2><p id="904fd56d-fd42-4630-9c43-c9980d67c495" class=""> </p><p id="fd984a14-4535-490a-a237-9ad5328d3d74" class="">
+</p><p id="7d9686d9-281b-464c-9f64-61cde2621a87" class="">
+</p><p id="7086b69b-85dd-4273-a26d-6397a8b0131d" class="">
+</p><p id="fc04055f-8b49-416c-af48-4688157df4bf" class="">
+</p><p id="d1afc609-cc88-4203-b273-950f6bf4cbc3" class="">
+</p><p id="d8c4c8bb-f33b-4d22-8ab5-5208de306aa4" class="">
+</p><h1 id="4388a347-cc5a-4f95-84cb-c2d9b06d3912" class="">✅  Day 1 - 10  Learn basics of chosen language</h1><p id="d5159a97-2a84-445d-b4db-299636081fb4" class="">
+</p><p id="c8b1bf96-3c41-4c36-8523-03b5e5322101" class="">&quot;Basics&quot;, now this is quite arguable as to what can be called &quot;basics&quot; of any given language, but you should know enough to perform normal operations and understand the structure and syntax of the language. 
+</p><p id="3de0907e-a4f9-4049-a893-1f220684a307" class="">Here&#x27;s a list of the best courses available to start with the language. </p><ul id="6e7b72b0-b8d1-4bbf-a9da-30c931c9115f" class="bulleted-list"><li>C  <ol id="9dbd23ef-bba0-4b66-9288-71eab4c3782c" class="numbered-list" start="1"><li><mark class="highlight-yellow"><a href="https://www.youtube.com/watch?v=KJgsSFOSQv0">Freecodecamp&#x27;s C Programming Tutorial for Beginners</a></mark><mark class="highlight-yellow"> </mark>- 4 Hours </li></ol><ol id="63ce1e81-c981-4dc8-91a1-682c010d32b0" class="numbered-list" start="2"><li><a href="https://www.youtube.com/watch?v=Bz4MxDeEM6k"><mark class="highlight-yellow">C Programming All-in-One Tutorial Series </mark></a><mark class="highlight-yellow">- </mark>10 Hours</li></ol></li></ul><p id="c2fed142-570b-4d89-b92d-ebf9bc854c57" class="">
+</p><ul id="9f0c7507-a9b9-4af4-af31-9bd3e82f78a3" class="bulleted-list"><li>C++<ol id="a2a4a7a5-57b1-4375-989b-568ee8cf9164" class="numbered-list" start="1"><li><a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y"><mark class="highlight-yellow">C++ Tutorial for Beginners</mark></a><mark class="highlight-yellow"> - </mark>4 Hours</li></ol><ol id="8173547a-614e-474c-b802-5dd97ed0be1f" class="numbered-list" start="2"><li><mark class="highlight-yellow"><a href="https://www.youtube.com/watch?v=GQp1zzTwrIg">C++ FULL COURSE For Beginners</a></mark><mark class="highlight-yellow"> - </mark>10 Hours</li></ol></li></ul><p id="4fc47885-385f-452d-a530-b4e7b47a55d0" class="">
+</p><ul id="f6cc790b-60d8-40a8-bc77-b118f92f911d" class="bulleted-list"><li>Python<ol id="51fd38f5-c9e7-4218-82e5-80dd4992be38" class="numbered-list" start="1"><li><a href="https://www.youtube.com/watch?v=rfscVS0vtbw&amp;t=2s"><mark class="highlight-yellow">Full Course for Beginners</mark></a><mark class="highlight-yellow"> - </mark>4 Hours</li></ol><ol id="f8905714-46b2-41fa-9d18-2cb173b0d1ae" class="numbered-list" start="2"><li><a href="https://www.youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3"><mark class="highlight-yellow">Python Tutorial for Beginners (Full Course)</mark></a><mark class="highlight-yellow"> - </mark>Self paced - Topic Wise Videos
+</li></ol></li></ul><ul id="efd95ea0-553c-435b-8ffe-0e95f25307ef" class="bulleted-list"><li>Java <ol id="28217f44-9c19-478e-9378-8c9b5569deed" class="numbered-list" start="1"><li><a href="https://www.youtube.com/watch?v=grEKMHGYyns"><mark class="highlight-yellow">Learn Java 8 - Full Tutorial for Beginners</mark></a><mark class="highlight-yellow"> - </mark>9.5 Hours</li></ol><ol id="7c23f0ae-43fc-473b-a6a9-351c9f945c0c" class="numbered-list" start="2"><li><a href="https://www.youtube.com/watch?v=S0V20PHPR4M"><mark class="highlight-yellow">Java Tutorial for Beginners to Expert [Full Course - 2020]</mark></a><mark class="highlight-yellow"> - </mark>4.35 Hours</li></ol></li></ul><p id="d69b625d-afb4-4511-a502-1c501fc44bc3" class="">
+</p><p id="7ec6d7b5-1245-48bc-a72e-1b85010e4c6f" class="">These are the 4 main languages that are asked in interview rounds, I would suggest you go for Python or java. C and C++ are usually taught in high schools and most people do have a hang of it. 
+Python is simple and easy to learn, it&#x27;s the way you speak, you type and it does that. Less syntax to worry about. It&#x27;s a beginner-friendly language. 
+
+Like I said if you are dedicating more than 5-6 Hours daily then you might end up finishing the courses in 2 or 3 days, but remember to not just watch the videos but to implement it side by side.  Schedule for first 10 days wont be any use as it depends on the language you end up choosing and how much time you dedicate everyday.</p><p id="792333a8-bc92-46a9-9cc1-6ce33dd5ef19" class="">
+</p><p id="63d14c7d-dffc-49c3-a63e-b774695ba22a" class="">
+</p><p id="75627e52-6ef1-41f6-9488-3c1fe8fa735a" class="">
+</p><p id="4bdb63cc-52a3-44d0-8091-5bb5ad6b5ffe" class="">
+</p><p id="73ce06eb-32cb-4c69-b499-0e04f1638e52" class="">
+</p><h1 id="d086248e-4dc0-4102-bc74-1669dd007446" class="">✅  Day 11 to 30 - Algorithms and Data Structures       (Learn and practise) </h1><p id="924f7090-3176-4736-8585-42f213b97842" class="">
+</p><p id="3d63ac38-da0f-4a5a-b4f2-5bbe652cb654" class="">Can I make it bold ? Yeah, I should probably make it<strong> bold</strong>. <span style="border-bottom:0.05em solid"><strong>It&#x27;s the most important part of coding.</strong></span> The main topic is a make or break for most of the interviews out there. </p><p id="2fb869a1-a295-45e8-91c9-e08ec4413186" class="">
+</p><p id="542854b3-64e1-49cd-aa44-ddf06c488386" class="">One of the best ways is to tackle this is by understanding time complexity and space complexity then moving onto algorithms, then data structures. </p><p id="c667dbfb-c4fe-476a-bdc9-59c512c9b9be" class="">
+</p><p id="0a7a23c7-3900-4ea9-89c9-40a43bdfda9e" class=""><mark class="highlight-purple_background"><a href="https://www.codechef.com/certification/data-structures-and-algorithms/prepare"><strong>Here</strong></a></mark><mark class="highlight-purple_background"> is a must-read article if you are looking for topics that are there in Data Structures and Alg. including tutorial and practise problems from CodeChef. </mark><mark class="highlight-blue_background">
+</mark>
+Let&#x27;s look at few resources -
+</p><ul id="c8ddd000-9dde-40e2-ac6e-a57b88db0931" class="bulleted-list"><li><a href="https://www.youtube.com/watch?v=RBSGKlAvoiM&amp;t=718s"><mark class="highlight-yellow">Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer </mark></a>- 8 Hours
+Detailed explanation of almost all the topics. But single course won&#x27;t work. </li></ul><ul id="6f59f6d4-a98f-4b36-9716-42d24ba898ed" class="bulleted-list"><li><a href="https://www.youtube.com/watch?v=8hly31xKli0&amp;t=126s"><mark class="highlight-yellow">Algorithms and Data Structures - Full Course for Beginners </mark></a>- 5.3 Hours</li></ul><p id="8bf67be9-6989-4637-9641-303fc87710b4" class="">
+</p><p id="ec5a9a1e-2d93-4c09-a237-a9502d222412" class="">Now let&#x27;s look at Data Structures by language.
+
+<mark class="highlight-orange">Also just a tip, You might take up any language but make sure you do use the videos mentioned in the C / C++ section. Those videos are lengthy and super effective when it comes to clearing concept along the way. </mark>
+</p><p id="30966cfa-9192-4d90-bd9b-376b31b14fe6" class="">
+</p><ul id="19bdd156-671a-4eec-90b5-267605ee3172" class="bulleted-list"><li>C / C++ <ol id="fa0baab0-76e1-44f4-ad9c-00f1d5ac7b6e" class="numbered-list" start="1"><li><mark class="highlight-yellow"><a href="https://www.youtube.com/watch?v=B31LgI4Y4DQ">Data Structures - Full Course Using C and C++</a></mark> - 10 Hours</li></ol><ol id="ddde79ba-0498-49ac-ab78-8205286be2f2" class="numbered-list" start="2"><li> <a href="https://www.youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ"><mark class="highlight-yellow">C++ Data Structures and Algorithms </mark></a>- Hours and Hours 
+This course starts with C++ basics then dives into various topics in the academic sequence that is followed everywhere and the playlist is lengthy. You will have to choose your topics wisely. </li></ol></li></ul><p id="c872f699-9441-492f-a956-383811d51bf1" class="">
+</p><ul id="d7382a77-00a6-49dc-bbcb-0d75eaa4e952" class="bulleted-list"><li>Python<ol id="5e5e9dc8-0170-4582-b086-65ba41b1b544" class="numbered-list" start="1"><li><a href="https://www.youtube.com/playlist?list=PLsyeobzWxl7oRKwDi7wjrANsbhTX0IK0J"><mark class="highlight-yellow">Data Structures using Java </mark></a>- 2 Hours</li></ol><ol id="f50fe07f-a4a1-40fa-b7b2-a8c497b2dc49" class="numbered-list" start="2"><li><a href="https://www.youtube.com/playlist?list=PLeo1K3hjS3uu_n_a__MI_KktGTLYopZ12"><mark class="highlight-yellow">Data Structures And Algorithms In Python by codebasics</mark></a> - Playlist - 3-4 Hours</li></ol></li></ul><p id="127b885e-3a92-47ee-b525-dfbd761f1093" class="">
+</p><ul id="579e227a-cada-425c-9297-8f1aaff80776" class="bulleted-list"><li>Java<ol id="cf9efa1c-3df9-4dc2-9c17-d7d4e07a0cbc" class="numbered-list" start="1"><li><a href="https://www.youtube.com/watch?v=kQDxmjfkIKY"><mark class="highlight-yellow">Data Structures And Algorithms in</mark></a><mark class="highlight-yellow"> Java </mark>- 2 Hours</li></ol><ol id="f0b14277-bad8-4dfa-b2a2-dda3360b2005" class="numbered-list" start="2"><li><a href="https://www.youtube.com/watch?v=MTMGx_w12LE"><mark class="highlight-yellow">Data Structures and Algorithms in Java by Greatleaning</mark></a> - Playlist - 1 Hour</li></ol><p id="358c253b-14dc-4866-adb2-00500c2e4128" class="">If you have taken up java then along with the courses mentioned in this section I would also recommend that you take up the C/C++ section too. The code in the video might be using c++ or c but that way you get to write the code by yourself and that course is lengthy and will help to clear any doubts that you might be having. </p></li></ul><h2 id="d8647645-ccb9-45f8-82ac-83cb7281f973" class="">
+💪🏻 Practice </h2><p id="78f64fa7-7c37-4640-84b5-5bfa6118a53e" class="">
+</p><p id="103c41d7-3b4d-4fbf-8542-8cfa42063a6c" class="">There is no better way of practising data structures than solving problems on your own and 
+<a href="https://www.hackerrank.com/domains/data-structures"><mark class="highlight-yellow">Data Structures&#x27;s Module on HackerRank </mark></a>should be the best place to start.  <strong>Start with selecting the easy questions and focus on solving just the easy when. We will be spending good 40 days solving various problems in whichever language you have selected. </strong></p><p id="58f740e3-ff51-433c-abc0-319eb3ee1c11" class="">
+</p><p id="b7fdad7a-1aff-40ea-bb54-73bd4d59f1aa" class="">
+</p><p id="fd427525-729a-44b9-8578-0616c42c7cf3" class="">Everything mentioned above should easily take up 20 days of yours (if you dedicate 4-6 Hours daily), If not then it might easily be 40! But if you are on time and are able to complete the given resources in time do not forget GeeksforGeeks. </p><ul id="fc0bc81b-79af-4d21-9c78-1eb60af71e89" class="bulleted-list"><li>GeeksforGeeks <a href="https://www.geeksforgeeks.org/data-structures/"><mark class="highlight-yellow">Data Structures</mark></a><mark class="highlight-yellow"> </mark></li></ul><ul id="0b1ea995-ef1f-4c08-94ca-214850d99474" class="bulleted-list"><li>GeeksforGeeks <mark class="highlight-yellow"><a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algorithms</a></mark></li></ul><p id="2d8480d1-373f-4a9c-b510-a30959dd1f5a" class="">
+</p><p id="d6bb6025-4f0c-442f-8e7c-1cf89d356389" class="">
+</p><h2 id="8245d084-bf06-44c5-939d-0592324631ff" class="">🗓  Schedule
+</h2><p id="2f2cf187-3b0f-447c-ad49-25e33673431f" class="">Follow this schedule and it should work like a charm for you. </p><div id="a8dfc869-33bd-44ec-b881-b6c68ad9a143" class="collection-content"><h4 class="collection-title">
+
+
+</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Topic</th></tr></thead><tbody><tr id="e93ceffe-ad80-453e-be0f-0543ed7b19a9"><td class="cell-title"><a href="https://www.notion.so/11-17-e93ceffead80453ebe0f0543ed7b19a9">11 - 17</a></td><td class="cell-]FYU">4 to 6 Hours Each Day</td><td class="cell-;ilp">Data Structures and Alg.</td></tr><tr id="83e84e82-2774-4e95-a913-591203248b8b"><td class="cell-title"><a href="https://www.notion.so/18-30-83e84e8227744e95a913591203248b8b">18 - 30 </a></td><td class="cell-]FYU">4 to 6 Hours Each Day</td><td class="cell-;ilp">Problem Solving </td></tr></tbody></table></div><p id="ea033bd3-2749-4e2d-b954-470a789782cc" class="">
+</p><p id="56ea14cb-9c41-4d12-b98a-791b13aff871" class="">
+</p><p id="1c8b1f18-81bc-48d8-8375-0a4235fe071d" class="">
+</p><h1 id="4196b8f5-fa59-4585-aa8c-ddd3aa291498" class="">⚠️ Plan for coming Days</h1><p id="e8faa03f-d296-4a1e-997e-2cd3b2a2a576" class="">Now the plan for the coming days is important.  70 days more and by now you understand and have already covered the most important topic out of all, i.e data structures and algorithms. Now we have to focus on solving various kinds of problems in whichever language you have selected and one of the best places to start it would be HackerRank, It&#x27;s free and the problems are seriously good. 
+
+</p><p id="30a21a2f-2638-4f3d-a4b1-300c11d4186d" class="">
+</p><p id="cec29184-95eb-4093-bac2-ec2a581e4c95" class="">
+</p><p id="b111097a-d2c0-4a96-a271-432075ee742d" class="">
+</p><h1 id="a5910878-4ec3-4ed1-a2e4-0809aec4738c" class="">✅  Day 31 to 45 - Start with &quot;Easy&quot; problems</h1><p id="80f2e927-b45c-4458-80c4-41d198cf130c" class="">
+</p><p id="468f3b73-bb8b-4126-a191-b191effbfe5f" class="">These 15 days are as important as it will help you understand how to solve basic problems in coding.  Set a goal to solve 150 questions, tackling 10 problems each day. Now remember 10 problems in a single day might now seem a less by just reading this, but it might easily take 30-40 mins for you to understand a single problem that you might be a little difficult. But always remember, in coding, something that is difficult for one person, might be easy for another. 
+Resources - 
+ </p><ul id="30611842-6fe2-49d6-acc5-1eb42d4a0a91" class="bulleted-list"><li><mark class="highlight-yellow"><a href="https://www.hackerrank.com/">HackerRank</a></mark>  - Select your language and solve as many possible questions in the easy tab. Also, feel free to explore problems labelled as &quot;medium&quot; or &quot;hard&quot;. 
+
+</li></ul><figure id="e6f8de39-1381-4b17-bd0f-a1140fadd8a4" class="image"><a href="#100daysofCode%2007f822c02dbf4bdba62e7329fbf4c9bb/Screenshot_2021-05-17_at_12.35.58_AM.png"><img style="width:2864px" src="Screenshot_2021-05-17_at_12.35.58_AM.png"/></a></figure><p id="c666e290-b8fa-45f3-937b-656674f949a9" class="">
+</p><p id="5bd1941f-eded-48de-8903-f4f7143a8b87" class="">
+</p><p id="985d343b-c9df-498b-8816-bfb7181c5cd2" class="">That alone should make you feel more confident when it comes to solving questions that will make your head turn a little.  But if you want to code more and for free. Here a few more resources - 
+</p><ul id="7a4ce9f7-ca83-4d43-9410-bc5d06bcdf0e" class="block-color-yellow bulleted-list"><li><a href="https://www.topcoder.com/">https://www.topcoder.com</a></li></ul><ul id="7a3323da-c70c-42bc-9ac8-9e9e11d00932" class="block-color-yellow bulleted-list"><li><a href="https://www.coderbyte.com/">https://www.coderbyte.com/</a></li></ul><ul id="e34a0e4a-a3b4-4fed-887d-86e5da93b50b" class="block-color-yellow bulleted-list"><li><a href="https://projecteuler.net/">https://projecteuler.net/</a></li></ul><ul id="d854c5d9-3b73-4d7a-b37a-5b766cd26ee2" class="block-color-yellow bulleted-list"><li><a href="https://www.codechef.com/">https://www.codechef.com/</a></li></ul><ul id="0623e8ea-28c4-411d-9042-0c2c12516f11" class="block-color-yellow bulleted-list"><li><a href="https://exercism.io/">https://exercism.io/</a></li></ul><p id="f8679387-b723-4824-b7c8-231b8be7e754" class="">
+</p><p id="2a8e4224-547e-401c-83fa-14d66cacd31c" class="">
+</p><h2 id="c8c13f2f-1ee5-421e-af13-042047b03d6e" class="">🗓 Schedule
+</h2><div id="2fb04763-f10e-4f10-85b8-30256605ca19" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Problems</th></tr></thead><tbody><tr id="d2da6774-711f-40a4-962e-505e0b152b73"><td class="cell-title"><a href="https://www.notion.so/31-45-d2da6774711f40a4962e505e0b152b73">31 - 45 </a></td><td class="cell-|bFh"> 4 to 6 Hours each day</td><td class="cell-\|RL">10 each day</td></tr></tbody></table></div><p id="d4bd9e20-8b5a-48bd-84d0-640b6fd53eba" class="">
+</p><p id="45f73830-fa27-443b-a9a7-d45de64e9b00" class="">
+</p><p id="175b4a98-81bd-4fc9-b077-2f015e758f3b" class="">
+</p><p id="96a9687c-3dac-4104-98e8-f63494e701fc" class="">
+</p><p id="ea7a83e1-f5bf-4cf1-8c79-dcb3b2e1f33b" class="">
+</p><h1 id="1d63b278-b524-48d3-bfea-69b1cbb70f2f" class="">✅  Day 46 to 60 -  &quot;Medium&quot; problems</h1><p id="bb5d500e-c29f-46d5-80ee-f8620c555043" class="">
+</p><p id="b7657de7-2152-4163-99c5-cec6a82a7a9d" class="">Once done with solving easy level problems then medium problems would seem like a combination of one or more &quot;easy&quot; problems. We are utilizing 15 whole days to get the work done. 
+Focus on solving min 120 - 150 medium level problems, you can tackle this by solving almost 7 - 10 problems daily. Now, the times taking for solving this would greatly vary from person to person, but put at least 4 to 5 hours min, add 2 hours if it&#x27;s a holiday. ( 4 to 7 hours should do just fine. </p><p id="992823f0-c752-414e-a840-dae785b8c796" class="">
+</p><ul id="d64e10b1-9b57-46c1-b94f-5e835a868bf5" class="bulleted-list"><li><mark class="highlight-yellow"><a href="https://www.hackerrank.com/">HackerRank</a></mark>  - Select your language and solve as many possible questions in the easy tab. Also, feel free to explore problems labeled as &quot;medium&quot; or &quot;hard&quot;. 
+</li></ul><p id="babe9c3d-bf4c-4441-a631-3f1b8fabf107" class="">Other resources</p><ul id="87f02f7c-4832-46db-845c-966755834b38" class="block-color-yellow bulleted-list"><li><a href="https://www.topcoder.com/">https://www.topcoder.com</a></li></ul><ul id="2f161d20-45ce-4e2d-a59f-af73b68c54ec" class="block-color-yellow bulleted-list"><li><a href="https://www.coderbyte.com/">https://www.coderbyte.com/</a></li></ul><ul id="37f1d58f-e5dc-400f-9342-10f79f965882" class="block-color-yellow bulleted-list"><li><a href="https://projecteuler.net/">https://projecteuler.net/</a></li></ul><ul id="64cd6603-8bf2-4965-9eb5-e397c6f8e5e0" class="block-color-yellow bulleted-list"><li><a href="https://www.codechef.com/">https://www.codechef.com/</a></li></ul><ul id="f636a43c-c35f-4775-9461-7f2832e8f123" class="block-color-yellow bulleted-list"><li><a href="https://exercism.io/">https://exercism.io/</a></li></ul><p id="640908f6-a2bd-460a-b24f-5d9ed26c0859" class="">
+</p><p id="cdba012d-1ad4-4ade-8635-b39277814b9b" class="">
+</p><h2 id="418a05cb-fc9f-4aea-b0aa-37a69986a93a" class="">🗓 Schedule</h2><div id="0e5cb073-40c5-4e10-aa07-8933e812d14e" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Problems</th></tr></thead><tbody><tr id="c9b50f99-5f56-4642-90fb-566458e48aff"><td class="cell-title"><a href="https://www.notion.so/46-60-c9b50f995f56464290fb566458e48aff">46 - 60</a></td><td class="cell-`DYM">4- 7 Hours </td><td class="cell-]Q&lt;Q">7  to 10</td></tr></tbody></table></div><p id="5fc50661-b043-4051-a0f4-eb874723d0d0" class="">
+</p><p id="af0203e4-4e60-48c7-b23f-3b902fcac487" class="">
+</p><h1 id="bbc7035d-8dca-4000-ae83-a9fb013c0962" class="">✅  Day 61 to 75 -  &quot;Hard&quot; problems</h1><p id="2e0a7e2a-c9f2-4580-93b6-90b8f5d975bd" class="">
+</p><p id="db2ddd6f-38e8-40c6-a8fe-468f6c297961" class="">Now comes the hardest part, this is exactly where a majority of people lose faith and confidence. But let me tell you If you have made it this far then you should be damn proud of yourself. Cause I am! 💪🏻😄 ✅
+
+</p><blockquote id="0858ffc0-47b7-4c41-b174-01ba4003f890" class="">Keep at it! Do not forget the very <span style="border-bottom:0.05em solid"><strong>reason</strong></span> why you started.</blockquote><p id="0f7b464c-9c6a-4b7d-ba1f-d5efc0e51f6c" class="">
+</p><p id="bd94f3c3-945d-449f-928f-ee8f41aae3e9" class="">
+</p><ul id="b64e8b01-0598-4776-924f-1c0ba7486fb6" class="bulleted-list"><li><mark class="highlight-yellow"><a href="https://www.hackerrank.com/">HackerRank</a></mark>  - Select your language and solve as many possible questions in the easy tab. Also, feel free to explore problems labelled as &quot;hard&quot;. </li></ul><ul id="03c2fb05-df9f-4432-8ebd-4d763935190d" class="bulleted-list"><li><a href="https://practice.geeksforgeeks.org/explore/?problemType=functional&amp;difficulty%5B%5D=2&amp;page=1"><mark class="highlight-yellow">GeeksForGeeks</mark></a>  -  This link should directly take you to various function problems that are a little hard and will take a good amount of time/ headbanging/sweating to solve.
+</li></ul><p id="ceae803a-32a2-4bcb-9fa9-0d3348b23127" class="">
+</p><p id="94fd7ea4-5983-441a-910f-14a9dfb4f256" class="">Other resources</p><ul id="cd43d257-3ebe-4f12-abb3-daa18ba27ef6" class="block-color-yellow bulleted-list"><li><a href="https://www.topcoder.com/">https://www.topcoder.com</a></li></ul><ul id="be3ad2e4-9c0e-48ee-82b7-f123d6e10a64" class="block-color-yellow bulleted-list"><li><a href="https://www.coderbyte.com/">https://www.coderbyte.com/</a></li></ul><ul id="694bb335-12cb-4aa2-8945-4816f1780a1b" class="block-color-yellow bulleted-list"><li><a href="https://projecteuler.net/">https://projecteuler.net/</a></li></ul><ul id="049a2c85-9798-45a7-a5f2-82c67e4a7259" class="block-color-yellow bulleted-list"><li><a href="https://www.codechef.com/">https://www.codechef.com/</a></li></ul><ul id="0b4c1861-f152-4872-9c85-ac2a985b4af3" class="block-color-yellow bulleted-list"><li><a href="https://exercism.io/">https://exercism.io/</a></li></ul><p id="9fd918cf-993a-447a-bb30-20a57d8a50e8" class="">
+</p><p id="8c816b42-3c8d-485c-9388-552d5fc17c43" class="">
+</p><h2 id="8f7dbe0a-d1cc-4d3a-8b6c-179212e46638" class="">🗓 Schedule</h2><div id="c56df8ab-bad9-4b94-9e0f-997314ea66ca" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Problems</th></tr></thead><tbody><tr id="b2d2348a-8b94-449e-8e2b-a75617c08ca5"><td class="cell-title"><a href="https://www.notion.so/61-75-b2d2348a8b94449e8e2ba75617c08ca5">61 - 75</a></td><td class="cell-`DYM">4- 7 Hours </td><td class="cell-]Q&lt;Q">2 - 3</td></tr></tbody></table></div><p id="b1d8ed04-1194-4102-bea9-9a059ea3c28d" class="">
+</p><p id="a7223f73-b922-4a60-8048-09a293976796" class="">
+</p><p id="191ba1d7-f7b7-44d0-a7de-ebaa28f103fc" class="">
+</p><h1 id="65b80a81-fc08-4500-aec2-13e07db3c378" class="">✅  Day 76 - 85  -  Database Systems and Operating Systems</h1><p id="20066292-35c9-40fa-a392-ed2084067429" class="">
+</p><p id="0d04112f-f798-430c-afbb-a74c2ac30250" class="">&quot;Just 3 days !?&quot; Well, 7 hours for 2 days is more than enough do it in breaks of 2 hours each it will be so much easier. Stats show a lot of people who take up 100 days challenges are already from that domain. So assuming that most of you might have covered databases systems in the 3rd or 4th semester itself. 
+
+If not then do not worry. It&#x27;s not that difficult to understand. Honestly speaking if you have reached here, you have already completed most of the difficult part. </p><p id="373aee8e-b568-42d4-98b0-5d299abff325" class="">
+</p><p id="d75eded4-a825-4f72-9796-57791b0cb61b" class="">DB Resources</p><ul id="ea439029-b2b8-4336-a717-d606350f5131" class="bulleted-list"><li><mark class="highlight-yellow"><a href="https://www.youtube.com/playlist?list=PLBlnK6fEyqRi_CUQ-FXxgzKQ1dwr_ZJWZ">DBMS Playlist</a></mark>
+This should be perfect if you are already well versed in the DMBS and should give you a quick recap in brief. </li></ul><ul id="e973fb94-faeb-429a-935e-f63e625a6747" class="bulleted-list"><li><a href="https://www.youtube.com/watch?v=4cWkVbC2bNE&amp;t=3089s"><mark class="highlight-yellow">Database Systems - Cornell University Course (SQL, NoSQL, Large-Scale Data Analysis)</mark></a></li></ul><ul id="7b1f47e7-e1dc-4b12-9cd9-09b7c6364e23" class="bulleted-list"><li><mark class="highlight-yellow">D</mark><a href="https://www.youtube.com/watch?v=lxEdaElkQhQ"><mark class="highlight-yellow">atabase Systems - Cornell University Course (SQL, NoSQL, Large-Scale Data Analysis) - PART 2</mark></a></li></ul><p id="d9fbd0da-3b63-4f59-8f8a-743d81a65ce6" class="">
+</p><p id="6bfd2e14-5b11-477f-8770-ec3e7833b4d7" class="">OS Resources</p><ul id="26746ce4-0158-4008-b06a-667609a78e75" class="bulleted-list"><li><a href="https://www.youtube.com/watch?v=mXw9ruZaxzQ"><mark class="highlight-yellow">Operating System Full Course | Operating System Tutorials for Beginners</mark></a></li></ul><ul id="e6f55e0e-5ae4-4ab4-ac1c-6e322b16bafc" class="bulleted-list"><li><a href="https://www.geeksforgeeks.org/operating-systems/"><mark class="highlight-yellow">OS by GeeksforGeeks</mark></a></li></ul><p id="df68c457-419b-4485-a6bb-d4246a7d3703" class="">
+</p><h2 id="4148f72e-cf5a-4b2e-9e30-d2b27e4d4333" class="">🗓 Schedule</h2><div id="e04caf76-713a-46ae-b670-44c5e3ca5e3d" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Column</th></tr></thead><tbody><tr id="858f5c12-33f3-4d7a-806b-68e28bd14f7b"><td class="cell-title"><a href="https://www.notion.so/75-85-858f5c1233f34d7a806b68e28bd14f7b">75 - 85</a></td><td class="cell-`DYM">4- 7 Hours </td><td class="cell-wcgl"></td></tr></tbody></table></div><p id="ce13011b-41bf-4f56-9ded-c48362797c96" class="">
+</p><p id="f3b2ce32-fd0c-45f6-82ba-5aecac0d4966" class="">
+</p><h1 id="635d8e8f-62df-4aed-9e9a-0a1527523a92" class="">✅  Day 85 - 90  -  System Design</h1><p id="7bd30d32-1105-4d51-9fb7-23503e0acea2" class="">
+</p><p id="df5b0280-2826-475d-a4d2-f988ad713b56" class="">System design is something which not asked generally in most interviews unless you are applying for product-based roles and it was generally substituted for DB and OS questions from the interview point of view. For major companies, you would need to clear the system design test before getting promoted, for example from SDE1 and SDE2. </p><p id="0e10c38a-aced-4a03-9fc2-63a88e57460d" class="">
+</p><p id="0132200f-e597-4d8c-9549-42faf56e45e2" class="">Resources -</p><ul id="88874464-7dcd-419d-9683-86c777762bd3" class="bulleted-list"><li><a href="https://www.youtube.com/watch?v=MbjObHmDbZo"><mark class="highlight-yellow">System Design Course for Beginners</mark></a><mark class="highlight-yellow"> ( Audio is too low, Headphones should do it)</mark></li></ul><ul id="02fce74e-6eeb-47f2-89da-be1f4dd5b94e" class="bulleted-list"><li><a href="https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX"><mark class="highlight-yellow">System Design by Gaurav Sen ( Playlist ) </mark></a></li></ul><ul id="a91a016b-dec2-4bc1-a6a5-461ccadc5a2e" class="bulleted-list"><li><a href="https://www.youtube.com/playlist?list=PLTCrU9sGyburBw9wNOHebv9SjlE4Elv5a"><mark class="highlight-yellow">System Design Primer Course</mark></a></li></ul><ul id="203fa54a-3c6a-4353-aa8c-7e32cf5d1bfd" class="bulleted-list"><li><mark class="highlight-yellow"><a href="https://www.youtube.com/playlist?list=PLBtMh4xfa9FHSMKKgPZcPfoPbZmND5PC-">System Design</a></mark><mark class="highlight-yellow"> </mark>( Lengthy with an example of system designs of various existing companies )</li></ul><p id="5582bcb5-bfb6-4595-9403-2a0b4c205df0" class="">
+</p><p id="b66b19bc-6648-4feb-a980-f4889a098d91" class="">
+</p><h2 id="db88e87b-23f7-4860-a4d2-89496577450c" class="">🗓 Schedule</h2><div id="709e2a4a-82ca-4705-86b2-8651d14ff32c" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Day/Days</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Hours</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Column</th></tr></thead><tbody><tr id="84405995-b098-44f7-bb38-29ddacc44ec7"><td class="cell-title"><a href="https://www.notion.so/85-90-84405995b09844f7bb3829ddacc44ec7">85 - 90</a></td><td class="cell-`DYM">4- 7 Hours </td><td class="cell-wcgl"></td></tr></tbody></table></div><p id="a244477f-6b05-4d42-bee5-71129a9552aa" class="">
+</p><p id="55e00608-e304-4182-a270-bdc0c66dc71f" class="">
+</p><p id="5b294eca-f2f0-4c09-aa36-50d936a45841" class="">
+</p><p id="932b1974-9a16-472a-88e6-18258c1a73e4" class="">
+</p><h1 id="48decc87-f9ce-4a3d-929f-0547a29f76e7" class="">✅  Day 91 - 100     Company-specific</h1><p id="6e6fedfd-b568-4d42-987e-520010942142" class="">
+</p><p id="9069de62-bf12-4557-8f5e-be11c7e57f2d" class="">Now, First of all! .... <mark class="highlight-pink">Congrats on reaching day 91! </mark>
+This must have been tiring and hectic but then &quot;no pain no gain&quot; right. </p><p id="be8cd4b0-6128-4834-b925-66e4b2760fe6" class="">
+</p><p id="d39d1237-3353-461b-b362-63ab7f7e2426" class="">Company-specific is exactly what it means, one takes these challenges to up-skill themselves and crack coding interviews to get placed in their dream companies, but do remember the person hiring you also did the same thing. </p><p id="56957bcc-2e92-4c08-ae80-95459bf7f139" class="">Companies nowadays know that there are resources available online that can get you to master coding rounds along with other various rounds. So what isn&#x27;t everyone who clears the initial rounds clear personal interview? The answer is a <strong>cultural fit</strong>, every company has their own culture that they follow, certain principles they <strong>do not</strong> fail to highlight, understand the company culture. Network, connect and interact with those already in that company to understand how it works. </p><p id="de433afb-029e-46ea-a7fe-9153424fa403" class="">
+</p><p id="d48f0295-b788-4ca3-9b9c-75e5425841d9" class="">Another major letdown can be if the person is &quot;faking it&quot;. Now, everyone wants to get placed in good companies to get a higher salary ( especially for the ones just starting ). But, this mentality can hamper the company&#x27;s growth because the employee would just be looking at the ways of surviving the month rather can contributing to the growth. Companies have recruiters who have aced psychology and are sitting there to catch the candidates faking it.   </p><p id="b10bcaa5-58cc-4d48-9525-d430534b693f" class="">
+</p><p id="873e142a-9a6d-4451-88be-c5d01b504d3c" class="">To sum it up -</p><p id="0d67ee28-42b4-4a23-aa5d-152ee6e3bb66" class="">✅ Understand company culture.</p><p id="f84b7e84-1810-4947-bdd1-78fb9046684c" class="">✅ Tailor resumé according to company&#x27;s requirements. </p><p id="ffdcd8b3-cc49-41d0-8b87-d41b1fa4a6ed" class="">✅ Understand the role you are filling. </p><p id="a48f97c6-7f37-4b57-b80f-8e6935158a05" class="">✅ Work on your leadership skills.</p><p id="cd4a67e2-37bd-45f6-b850-06d235bd08c3" class="">✅ Pinpoint on how you will contribute to the company.</p><p id="aee467b8-2e1e-4e12-9028-b284ad5f2236" class="">
+</p><p id="647eeb83-24d5-4bb8-9a85-e88022ad6757" class="">
+</p><p id="96973bb6-906f-4806-8aeb-b29cb8de12f8" class="">
+</p><p id="f84ce82b-a6ae-4326-9821-fb96acf98eda" class="">
+</p><h2 id="7331eb35-048e-4470-a0c8-612dfc49ec51" class="block-color-orange">You have it in you folks! Get out there and crush it. </h2><p id="eacbbb81-f340-41bd-a8c7-8db04d92fd72" class="">Always remember, the interviewer was also interviewed once. <mark class="highlight-pink">Person to person</mark> is the best way to keep it real. </p><p id="13e4cae5-13d3-4a0c-b4b7-a50174a1f5b6" class="">
+</p><p id="4fa410ed-0959-4d57-8f86-42fb4a5e7705" class="">
+</p><p id="12d955df-9d55-4c90-8e47-6daf7eabd0cd" class="">
+</p><p id="80df74e1-79ee-4827-b95c-0cc1d1974492" class="">
+</p><h2 id="923c74c6-1bcd-4b31-a4ae-7e7d5afb1475" class="">A little Message.</h2><p id="22f4aa1f-d4b8-4a5c-ad39-987d1f4e12dc" class="">
+</p><p id="3d0b2274-5ba4-436d-a34a-da26b7c6f573" class="">Hey Folks! The100!  Thanks for being among the first ones to contribute to our journey and letting us be a part of yours.</p><p id="b712b104-3d21-4c53-95f3-29536cb420b3" class="">Heartfelt thanks ❤️ If you have stayed with us for 100days. We love your dedication and thanks for being a contributor to our mission: “Democratizing free learning”.</p><p id="84c1f487-439e-4b06-9b8d-105cf4223b57" class="">We will soon be setting up a form for your details and so that we can send you a cool certificate for your dedication, commitment and hard work throughout.</p><p id="9f4adcc8-4197-49f1-a3ea-1a2298207dee" class="">
+</p><p id="c9c13cd8-a45a-4d41-a816-757ff8464b16" class="">Utkarsh </p><p id="17b47dc0-b94c-47ad-a299-06baa9264018" class="">Founder 100days</p></div></article></body></html>
